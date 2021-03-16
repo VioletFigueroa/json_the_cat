@@ -2,6 +2,7 @@ const { fetchBreedDescription } = require('./breedFetcher');
 
 const breedName = process.argv[2];
 fetchBreedDescription(breedName, (error, desc) => {
-  error ? console.log('Error fetch details:', error)
-    : console.log(desc);
+  if (error) console.log('Error fetch details:', error);
+  else if (desc) console.log(desc);
+  else console.log('Error: Breed details not found');
 });
